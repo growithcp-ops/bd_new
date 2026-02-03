@@ -3,11 +3,44 @@
 
 @custom-variant dark (&:is(.dark *));
 
+:root {
+  /* Monochrome Premium Dark Palette */
+  --background: 0 0% 0%;
+  --foreground: 0 0% 100%;
+  
+  --card: 0 0% 5%;
+  --card-foreground: 0 0% 100%;
+  
+  --popover: 0 0% 3%;
+  --popover-foreground: 0 0% 100%;
+  
+  --primary: 0 0% 100%;
+  --primary-foreground: 0 0% 0%;
+  
+  --secondary: 0 0% 12%;    
+  --secondary-foreground: 0 0% 100%;
+  
+  --muted: 0 0% 10%;
+  --muted-foreground: 0 0% 60%;
+  
+  --accent: 0 0% 15%;       
+  --accent-foreground: 0 0% 100%; 
+  
+  --destructive: 0 0% 20%;
+  --destructive-foreground: 0 0% 98%;
+  
+  --border: 0 0% 15%;
+  --input: 0 0% 15%;
+  --ring: 0 0% 100%;
+  
+  --radius: 0.25rem;
+}
+
 @theme inline {
-  --radius-sm: 0px;
-  --radius-md: 0px;
-  --radius-lg: 0px;
-  --radius-xl: 0px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
   
   --color-background: hsl(var(--background));
   --color-foreground: hsl(var(--foreground));
@@ -32,39 +65,6 @@
   --font-sans: 'Inter', sans-serif;
   --font-display: 'Space Grotesk', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
-}
-
-:root {
-  /* Monochrome Premium Palette */
-  --background: 0 0% 100%;
-  --foreground: 0 0% 7%;
-  
-  --card: 0 0% 98%;
-  --card-foreground: 0 0% 7%;
-  
-  --popover: 0 0% 100%;
-  --popover-foreground: 0 0% 7%;
-  
-  --primary: 0 0% 7%;        /* Black for Primary */
-  --primary-foreground: 0 0% 100%;
-  
-  --secondary: 0 0% 92%;    
-  --secondary-foreground: 0 0% 7%;
-  
-  --muted: 0 0% 96%;
-  --muted-foreground: 0 0% 45%;
-  
-  --accent: 0 0% 94%;       
-  --accent-foreground: 0 0% 7%; 
-  
-  --destructive: 0 0% 15%;
-  --destructive-foreground: 0 0% 98%;
-  
-  --border: 0 0% 88%;
-  --input: 0 0% 88%;
-  --ring: 0 0% 7%;
-  
-  --radius: 0rem;
 }
 
 @layer base {
