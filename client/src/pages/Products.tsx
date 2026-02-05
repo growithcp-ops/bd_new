@@ -92,8 +92,8 @@ export default function Products() {
 
             <div className="grid grid-cols-2 gap-4">
               {facilityStats.map((stat, i) => (
-                <div key={i} className="p-8 bg-zinc-900/50 rounded-2xl border border-white/5 flex flex-col justify-center">
-                  <p className="text-3xl font-bold mb-2">{stat.value}</p>
+                <div key={i} className="p-8 bg-linear-to-br from-[#A8C3B1]/10 to-transparent rounded-2xl border border-white/5 flex flex-col justify-center hover:border-[#A8C3B1]/20 transition-all duration-500">
+                  <p className="text-3xl font-bold mb-2 text-white">{stat.value}</p>
                   <p className="text-sm text-white/40">{stat.label}</p>
                 </div>
               ))}

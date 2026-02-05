@@ -10,23 +10,23 @@ export default function Impact() {
               <div className="max-w-2xl">
                 <span className="text-[10px] font-mono uppercase tracking-[0.3em] font-bold mb-8 block text-white/40">Environmental Logic</span>
                 <h2 className="text-6xl md:text-8xl font-display font-black tracking-tighter leading-[0.85] mb-12 text-white">
-                  FOOTPRINT <br/> <span className="text-white/20">REFINED.</span>
+                  FOOTPRINT <br/> <span className="text-white">REFINED.</span>
                 </h2>
                 <p className="text-2xl font-light text-white/80 leading-tight">
-                  India does not need to choose between development and responsibility. It needs systems that allow both to exist together—quietly, consistently, and at scale.
+                  India does not need to choose between development and responsibility. 
+                  It needs systems that reduce carbon at the source—where materials are produced, moved, and reused—quietly, consistently, and at scale.
                 </p>
               </div>
 
               <div className="grid grid-cols-2 gap-px bg-white/10 border border-white/10">
                 {[
-                  { label: "Material Usage", value: "100%" },
-                  { label: "External Waste", value: "ZERO" },
-                  { label: "Recovery Rate", value: "MAX" },
-                  { label: "Disruption", value: "MIN" }
+                  { label: "Material Usage", value: "100%", sub: "Less waste outside the system means less carbon released beyond it." },
+                  { label: "External Waste", value: "Zero" }
                 ].map((stat) => (
                   <div key={stat.label} className="bg-zinc-900/50 p-10">
                     <p className="text-[10px] font-mono uppercase tracking-widest text-white/40 mb-4">{stat.label}</p>
                     <p className="text-5xl font-display font-black tracking-tighter text-white">{stat.value}</p>
+                    {stat.sub && <p className="text-[10px] font-mono text-white/20 mt-4 uppercase tracking-tighter">{stat.sub}</p>}
                   </div>
                 ))}
               </div>
@@ -39,14 +39,16 @@ export default function Impact() {
                 <div>
                   <h4 className="text-xs font-mono font-black uppercase mb-4 tracking-widest italic text-white/40">Cumulative Nature</h4>
                   <p className="text-sm text-white/60 leading-relaxed italic">
-                    "Environmental impact is cumulative by nature. What enters shared systems continues to move—through air that circulates freely, through land that supports more than buildings."
+                    Environmental impact is cumulative by nature. 
+                    What enters shared systems continues to move—through air that carries emissions, through land that absorbs extraction, and through supply chains that shape long-term carbon load.
                   </p>
                 </div>
                 
                 <div className="p-10 bg-zinc-900 border border-white/5 text-white space-y-6 rounded-2xl">
-                  <h4 className="text-2xl font-display font-bold uppercase tracking-tight">Slowing the movement.</h4>
+                  <h4 className="text-2xl font-display font-bold uppercase tracking-tight">SLOWING THE MOVEMENT.</h4>
                   <p className="text-xs text-white/40 leading-relaxed uppercase tracking-widest">
-                    When materials are produced with greater control and fewer disturbances, this movement begins to slow. Not abruptly. But decisively.
+                    When materials are produced with tighter control and lower disruption, carbon intensity begins to fall. 
+                    Not through sudden stops—but through fewer extractions, shorter transport cycles, and closed material loops.
                   </p>
                 </div>
               </div>

@@ -91,8 +91,8 @@ export default function Technology() {
                 { label: "Dust Capture", value: "99.9%" },
                 { label: "Automated Operation", value: "24/7" }
               ].map((stat, i) => (
-                <div key={i} className="p-8 bg-zinc-900/50 rounded-2xl border border-white/5">
-                  <p className="text-2xl font-bold mb-2">{stat.value}</p>
+                <div key={i} className="p-8 bg-linear-to-br from-[#A8C3B1]/10 to-transparent rounded-2xl border border-white/5 hover:border-[#A8C3B1]/20 transition-all duration-500">
+                  <p className="text-2xl font-bold mb-2 text-white">{stat.value}</p>
                   <p className="text-xs text-white/40">{stat.label}</p>
                 </div>
               ))}
