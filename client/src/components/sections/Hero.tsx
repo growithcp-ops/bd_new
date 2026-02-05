@@ -59,6 +59,26 @@ export default function Hero() {
                 ))}
               </div>
             </motion.div>
+
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.5, duration: 1 }}
+              className="relative group"
+            >
+              <div className="aspect-[16/9] bg-zinc-900 overflow-hidden border border-white/10 rounded-lg">
+                <img 
+                  src="/hero-bg.png" 
+                  alt="Granite Texture" 
+                  className="w-full h-full object-cover opacity-60 transition-transform duration-2000 group-hover:scale-105"
+                />
+              </div>
+              <div className="absolute -bottom-8 -left-8 p-10 bg-black/80 backdrop-blur-xl border border-white/10 shadow-2xl max-w-xs rounded-lg">
+                <p className="text-sm font-bold leading-relaxed italic text-white">
+                  "Built for scale. Designed for responsibility."
+                </p>
+              </div>
+            </motion.div>
           </div>
         </div>
       </div>
