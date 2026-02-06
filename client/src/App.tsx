@@ -10,6 +10,8 @@ import About from "@/pages/About";
 import Technology from "@/pages/Technology";
 import ProductsPage from "@/pages/Products";
 import ImpactCalculator from "@/pages/ImpactCalculator";
+import Invest from "@/pages/Invest";
+import InvestorStats from "@/pages/InvestorStats";
 
 function Router() {
   return (
@@ -18,7 +20,9 @@ function Router() {
       <Route path="/about" component={About} />
       <Route path="/technology" component={Technology} />
       <Route path="/products" component={ProductsPage} />
+      <Route path="/invest" component={Invest} />
       <Route path="/impact-calculator" component={ImpactCalculator} />
+      <Route path="/investor-stats" component={InvestorStats} />
       <Route component={NotFound} />
     </Switch>
   );

@@ -1,10 +1,39 @@
+import "dotenv/config";
+
 import express, { type Request, Response, NextFunction } from "express";
+import session from "express-session";
+import createMemoryStore from "memorystore";
 import { registerRoutes } from "./routes";
 import { serveStatic } from "./static";
 import { createServer } from "http";
 
 const app = express();
 const httpServer = createServer(app);
+
+// ---------------------------------------------------------------------------
+// Session
+// ---------------------------------------------------------------------------
+// Used for lightweight investor gating (server-side session flag).
+// NOTE: Configure SESSION_SECRET in production.
+const MemoryStore = createMemoryStore(session);
+app.use(
+  session({
+    name: "bd_session",
+    secret: process.env.SESSION_SECRET ?? "bd_session_secret_change_me",
+    resave: false,
+    saveUninitialized: false,
+    rolling: true,
+    store: new MemoryStore({
+      checkPeriod: 1000 * 60 * 60 * 6, // prune expired entries every 6h
+    }),
+    cookie: {
+      httpOnly: true,
+      sameSite: "lax",
+      secure: process.env.NODE_ENV === "production",
+      maxAge: 1000 * 60 * 60 * 12, // 12 hours
+    },
+  }),
+);
 
 declare module "http" {
   interface IncomingMessage {
