@@ -5,7 +5,7 @@ export default function Home() {
     <div className="min-h-screen bg-black text-white selection:bg-white selection:text-black">
       <Navbar />
       
-      <main className="bg-black">
+      <main className="bg-black pt-20">
         <Hero />
         <div className="h-[1px] w-full bg-white/10" />
         <Philosophy />

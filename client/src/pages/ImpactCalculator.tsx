@@ -1,16 +1,9 @@
-import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Droplets, Landmark, Recycle, ShieldAlert, ArrowRight, Info } from "lucide-react";
 import Navbar from "@/components/Navbar";
 
 const CalculatorCard = ({ icon: Icon, title, value, unit, subtitle }: { icon: any, title: string, value: string, unit: string, subtitle: string }) => (
-  <motion.div 
-    initial={{ opacity: 0, y: 20, scale: 0.95 }}
-    animate={{ opacity: 1, y: 0, scale: 1 }}
-    whileHover={{ y: -8, scale: 1.02 }}
-    transition={{ duration: 0.5, type: "spring", stiffness: 200 }}
-    className="bg-gradient-to-br from-zinc-900/40 to-black border border-white/10 p-6 rounded-xl space-y-3 hover:border-white/30 transition-all duration-500 group shadow-xl hover:shadow-[0_15px_30px_rgba(255,255,255,0.1)]"
-  >
+  <div className="bg-gradient-to-br from-zinc-900/40 to-black border border-white/10 p-6 rounded-xl space-y-3 hover:border-white/30 transition-all duration-500 group shadow-xl hover:shadow-[0_15px_30px_rgba(255,255,255,0.1)]">
     <div className="w-10 h-10 bg-gradient-to-br from-white/5 to-transparent border border-white/20 rounded-lg flex items-center justify-center text-white/40 group-hover:bg-white/10 transition-colors">
       <Icon className="w-5 h-5" />
     </div>
@@ -24,7 +17,7 @@ const CalculatorCard = ({ icon: Icon, title, value, unit, subtitle }: { icon: an
     <p className="text-xs text-white/40 leading-relaxed pt-3 border-t border-white/10 group-hover:border-white/20 transition-colors">
       {subtitle}
     </p>
-  </motion.div>
+  </div>
 );
 
 const Footer = () => (
@@ -145,15 +138,28 @@ export default function ImpactCalculator() {
   return (
     <div className="min-h-screen bg-black text-white overflow-x-hidden">
       <Navbar />
+      <style>{`
+        @keyframes sproutGrow {
+          0% { transform: translateY(18px) scale(0.6); opacity: 0; }
+          35% { opacity: 0.4; }
+          100% { transform: translateY(0) scale(1); opacity: 1; }
+        }
+        @keyframes sproutSway {
+          0% { transform: rotate(-4deg); }
+          50% { transform: rotate(4deg); }
+          100% { transform: rotate(-4deg); }
+        }
+        @keyframes sproutPulse {
+          0% { opacity: 0.25; transform: scale(0.8); }
+          60% { opacity: 0.55; transform: scale(1.08); }
+          100% { opacity: 0.25; transform: scale(0.8); }
+        }
+      `}</style>
       
       <main className="pt-20 pb-16">
         <div className="container px-6 mx-auto">
           <div className="max-w-4xl mx-auto mb-12 text-center">
-            <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-            >
+            <div>
               <h1 className="text-4xl md:text-6xl font-display font-black text-white mb-6 uppercase tracking-tighter">
                 Environmental <br/> <span className="text-white/20 italic font-light">Impact Calculator</span>
               </h1>
@@ -161,16 +167,12 @@ export default function ImpactCalculator() {
                 Translate industrial recycling operations into measurable environmental preservation metrics. 
                 Quantify the impact of every ton of granite waste diverted from dumping and recycled into construction-grade material.
               </p>
-            </motion.div>
+            </div>
           </div>
 
           <div className="grid lg:grid-cols-3 gap-8 items-start">
             {/* Input Section */}
-            <motion.div 
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              className="lg:col-span-1 space-y-6"
-            >
+            <div className="lg:col-span-1 space-y-6">
               <div className="bg-zinc-900/40 border border-white/10 p-6 rounded-xl space-y-4 shadow-xl">
                 <div>
                   <label htmlFor="tons" className="block text-sm font-mono font-bold text-white uppercase tracking-widest mb-3">
@@ -216,7 +218,7 @@ export default function ImpactCalculator() {
                   ))}
                 </div>
               </div>
-            </motion.div>
+            </div>
 
             {/* Results Section */}
             <div className="lg:col-span-2 grid md:grid-cols-2 gap-4">
@@ -241,13 +243,28 @@ export default function ImpactCalculator() {
                 unit="KL"
                 subtitle="Total fresh water intake avoided through high-efficiency closed-loop filtration and recovery."
               />
-              <motion.div 
-                initial={{ opacity: 0, y: 20, scale: 0.95 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                whileHover={{ y: -8, scale: 1.02 }}
-                transition={{ duration: 0.5, type: "spring", stiffness: 200 }}
-                className="bg-gradient-to-br from-zinc-900/40 to-black border border-white/10 p-6 rounded-xl flex flex-col justify-center text-center shadow-xl hover:shadow-[0_15px_30px_rgba(255,255,255,0.15)]"
-              >
+              <div className="bg-gradient-to-br from-zinc-900/40 to-black border border-white/10 p-6 rounded-xl flex flex-col justify-center text-center shadow-xl hover:shadow-[0_15px_30px_rgba(255,255,255,0.15)] relative overflow-hidden">
+                <div
+                  className="absolute left-6 top-6 w-10 h-10"
+                  style={{ animation: "sproutGrow 0.7s ease-out 0.1s both" }}
+                  aria-hidden="true"
+                >
+                  <div
+                    className="w-10 h-10"
+                    style={{ animation: "sproutSway 1.2s ease-in-out 0.2s infinite" }}
+                  >
+                    <svg viewBox="0 0 48 48" className="w-full h-full" fill="none">
+                      <path d="M24 42V20" stroke="rgba(168,195,177,0.7)" strokeWidth="2" strokeLinecap="round"/>
+                      <path d="M24 28c-8 0-14-6-14-14 8 0 14 6 14 14Z" fill="rgba(168,195,177,0.18)" stroke="rgba(168,195,177,0.5)" strokeWidth="1.5"/>
+                      <path d="M24 28c8 0 14-6 14-14-8 0-14 6-14 14Z" fill="rgba(168,195,177,0.12)" stroke="rgba(168,195,177,0.45)" strokeWidth="1.5"/>
+                      <circle cx="24" cy="36" r="2.5" fill="rgba(168,195,177,0.65)"/>
+                    </svg>
+                  </div>
+                  <div
+                    className="absolute inset-0 rounded-full border border-white/10"
+                    style={{ animation: "sproutPulse 1.6s ease-in-out infinite" }}
+                  />
+                </div>
                 {/* Primary metric (top) */}
                 <div className="space-y-3">
                   <div>
@@ -276,7 +293,7 @@ export default function ImpactCalculator() {
                     Significant reduction in regional water stress and illegal mining activities.
                   </p>
                 </div>
-              </motion.div>
+              </div>
             </div>
           </div>
 
