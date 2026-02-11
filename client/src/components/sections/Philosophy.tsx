@@ -1,9 +1,27 @@
 import { motion } from "framer-motion";
+import roadJunctionVideo from "@assets/458388_Road_Junction_1280x720.mov";
+import miningVideo from "@/assets/videos/mining-extraction.mp4";
 
 export default function Philosophy() {
   return (
-    <section id="about" className="py-32 bg-black text-white">
-      <div className="container px-6 mx-auto">
+    <section id="about" className="relative z-0 overflow-hidden py-32 text-white">
+      <div className="absolute inset-0 z-0">
+        <video
+          className="h-full w-full object-cover opacity-55"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+        >
+          <source src={roadJunctionVideo} type="video/quicktime" />
+          <source src={roadJunctionVideo} />
+          <source src={miningVideo} type="video/mp4" />
+        </video>
+      </div>
+      <div className="absolute inset-0 z-10 bg-black/62" />
+
+      <div className="container relative z-20 px-6 mx-auto">
         <div className="grid lg:grid-cols-12 gap-24">
           <div className="lg:col-span-6">
             <motion.div 
